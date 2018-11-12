@@ -8,14 +8,27 @@ namespace DataStructuresCode.BinaryTree
 {
     public class BinaryTree
     {
-        public void Add(int data)
+        public int root;
+
+
+
+        public void Root(Node root, int data)
         {
-            if (data <= root data)
+            if (root == null)
             {
-                leftChild = value;
+                root = new Node(data);
             }
-            else {
-                rightChild = value;
+        }
+
+        public void Add(Node root, int data)
+        {
+            if (data <= root.data)
+            {
+                root.leftChild = new Node(data);
+            }
+            else
+            {
+                root.rightChild = new Node(data);
             }
         }
     }
