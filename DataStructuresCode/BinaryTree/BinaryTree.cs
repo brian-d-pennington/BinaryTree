@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace DataStructuresCode.BinaryTree
 {
-    class BinaryTree
+    public class BinaryTree
     {
+        public void Add(int data)
+        {
+            if (data <= root data)
+            {
+                leftChild = value;
+            }
+            else {
+                rightChild = value;
+            }
+        }
     }
 }
