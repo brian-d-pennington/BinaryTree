@@ -89,12 +89,12 @@ namespace DataStructuresCode.BinaryTree
                         leftChildren = true;
                         return;
                     }
-                    else if (currentNode.leftChild == null)
+                    else if (currentNode == null)
                     {
-                        Console.Write("Number was not found on Binary Tree.");
+                        leftChildren = true;
                     }
                 }
-
+                currentNode = root;
                 bool rightChildren = false;
                 while (rightChildren == false)
                 {
@@ -105,9 +105,10 @@ namespace DataStructuresCode.BinaryTree
                         rightChildren = true;
                         return;
                     }
-                    else if (currentNode.rightChild == null)
+                    else if (currentNode == null)
                     {
-                        Console.Write("Number was not found on Binary Tree.");
+                        rightChildren = true;
+                        Console.Write("No matches found.");
                     }
                 }
 
