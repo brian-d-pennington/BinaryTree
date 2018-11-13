@@ -72,50 +72,48 @@ namespace DataStructuresCode.BinaryTree
         {
             Node currentNode = root;
 
-            bool isFinished = false;
-            while (isFinished == false)
+            if (numToSearch.Equals(currentNode))
             {
-                if (numToSearch.Equals(currentNode))
-                {
-                    Console.Write("The number " + numToSearch + " was found.");
-                    isFinished = true;
-                    return;
-                }
-                else if (!numToSearch.Equals(currentNode))
+                Console.Write("The number " + numToSearch + " was found.");
+                return;
+            }
+            else if (!numToSearch.Equals(currentNode))
+            {
+                bool leftChildren = false;
+                while (leftChildren == false)
                 {
                     currentNode = currentNode.leftChild;
                     if (numToSearch.Equals(currentNode))
                     {
                         Console.Write("The number " + numToSearch + " was found.");
-                        isFinished = true;
+                        leftChildren = true;
                         return;
                     }
                     else if (currentNode.leftChild == null)
                     {
-                        Console.Write("The number " + numToSearch + " doesn't exist in Binary Tree.");
-                        isFinished = true;
-                        return;
+                        Console.Write("Number was not found on Binary Tree.");
                     }
-                    // recycle while loop until match or null
                 }
-                else
+
+                bool rightChildren = false;
+                while (rightChildren == false)
                 {
                     currentNode = currentNode.rightChild;
                     if (numToSearch.Equals(currentNode))
                     {
                         Console.Write("The number " + numToSearch + " was found.");
-                        isFinished = true;
+                        rightChildren = true;
                         return;
                     }
                     else if (currentNode.rightChild == null)
                     {
-                        Console.Write("The number " + numToSearch + " doesn't exist in Binary Tree.");
-                        isFinished = true;
-                        return;
+                        Console.Write("Number was not found on Binary Tree.");
                     }
-
                 }
+
+                
             }
+
         }
 
     }
