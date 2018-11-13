@@ -25,9 +25,10 @@ namespace DataStructuresCode
 
             for(int i = 0; i < 10; i++)
             {
-                binaryTree.Add(r.Next(1, 101));
+                binaryTree.Add(r.Next(1, 11));
             }
-            binaryTree.Search(55);
+
+            binaryTree.Search(6);
         }
     }
 }
