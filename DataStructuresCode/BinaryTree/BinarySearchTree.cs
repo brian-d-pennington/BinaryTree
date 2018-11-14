@@ -71,6 +71,7 @@ namespace DataStructuresCode.BinaryTree
         public void Search(int numToSearch)
         {
             Node currentNode = root;
+            Node newRoot;
 
             if (numToSearch.Equals(currentNode))
             {
@@ -79,40 +80,44 @@ namespace DataStructuresCode.BinaryTree
             }
             else if (!numToSearch.Equals(currentNode))
             {
-                bool leftChildren = false;
-                while (leftChildren == false)
+                bool matchFound = false;
+                while (matchFound == false)
                 {
+                    newRoot = currentNode;
                     currentNode = currentNode.leftChild;
                     if (numToSearch.Equals(currentNode))
                     {
                         Console.Write("The number " + numToSearch + " was found.");
-                        leftChildren = true;
+                        matchFound = true;
+       
                         return;
                     }
                     else if (currentNode == null)
                     {
-                        leftChildren = true;
-                    }
-                }
-                currentNode = root;
-                bool rightChildren = false;
-                while (rightChildren == false)
-                {
-                    currentNode = currentNode.rightChild;
-                    if (numToSearch.Equals(currentNode))
-                    {
-                        Console.Write("The number " + numToSearch + " was found.");
-                        rightChildren = true;
-                        return;
-                    }
-                    else if (currentNode == null)
-                    {
-                        rightChildren = true;
-                        Console.Write("No matches found.");
-                    }
-                }
+                        currentNode = newRoot;
+                        currentNode = currentNode.rightChild;
+                        if (numToSearch.Equals(currentNode))
+                        {
+                            Console.Write("The number " + numToSearch + " was found.");
+                            matchFound = true;
 
-                
+                            return;
+                        }
+                        else if (!numToSearch.Equals(currentNode) && !numToSearch.Equals(null))
+                        {
+                            matchFound = false;
+                        }
+                        else if (currentNode == null)
+                        {
+                            Console.WriteLine("No match found.");
+                            matchFound = true;
+                        }
+                    }
+                    else if (!numToSearch.Equals(currentNode) && !numToSearch.Equals(null))
+                    {
+                        matchFound = false;
+                    }
+                }     
             }
 
         }
